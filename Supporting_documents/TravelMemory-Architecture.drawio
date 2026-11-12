@@ -1,0 +1,94 @@
+<mxfile host="Electron">
+  <diagram name="TravelMemory Architecture" id="0">
+    <mxGraphModel dx="1414" dy="875" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1500" pageHeight="700" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="AP78WbEud_w9iiDv46Z8-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;roundedPerimeter=1;" value="" vertex="1">
+          <mxGeometry height="580" width="880" x="240" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="n4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffcd28;strokeColor=#d79b00;fontStyle=1;dashed=0;gradientColor=#ffa500;" value="User Browser" vertex="1">
+          <mxGeometry height="80" width="140" x="20" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="n6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontStyle=1;dashed=0;" value="Frontend ALB&lt;br&gt;travelmemory-frontend-alb&lt;br&gt;:80" vertex="1">
+          <mxGeometry height="100" width="170" x="270" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="n7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;dashed=0;gradientColor=#7ea6e0;" value="frontend-master&lt;br&gt;EC2 - Nginx :80&amp;nbsp;" vertex="1">
+          <mxGeometry height="80" width="200" x="520" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="n8" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;dashed=0;gradientColor=#7ea6e0;" value="frontend-2 (from AMI)&lt;br&gt;EC2 - Nginx :80&amp;nbsp;" vertex="1">
+          <mxGeometry height="80" width="200" x="520" y="430" as="geometry" />
+        </mxCell>
+        <mxCell id="n9" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F4C7C8;fontColor=#8A1214;strokeColor=#8A1214;fontStyle=1;dashed=1;" value="AMIs: travelmemory-frontend-ami / travelmemory-backend-ami" vertex="1">
+          <mxGeometry height="40" width="200" x="520" y="540" as="geometry" />
+        </mxCell>
+        <mxCell id="n10" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontStyle=1;dashed=0;" value="Backend ALB&lt;br&gt;travelmemory-backend-alb&lt;br&gt;:80" vertex="1">
+          <mxGeometry height="100" width="170" x="790" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="n11" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#b1ddf0;strokeColor=#10739e;fontStyle=1;dashed=0;" value="backend-master&lt;br&gt;Nginx :80 to Node :3000 (systemd)" vertex="1">
+          <mxGeometry height="80" width="170" x="900" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="n12" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;dashed=0;gradientColor=#7ea6e0;" value="backend-2 (from AMI)&lt;br&gt;Nginx :80 to Node :3000 (systemd)" vertex="1">
+          <mxGeometry height="80" width="170" x="900" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="n13" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontStyle=1;dashed=0;gradientColor=#b3b3b3;" value="MongoDB Atlas" vertex="1">
+          <mxGeometry height="100" width="180" x="1150" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="e14" edge="1" parent="1" source="n4" style="endArrow=block;html=1;strokeWidth=2;strokeColor=#333333;dashed=0;" target="n6" value="HTTP">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e16" edge="1" parent="1" source="n6" style="endArrow=block;html=1;strokeWidth=2;strokeColor=#333333;dashed=0;" target="n7" value="">
+          <mxGeometry relative="1" x="0.0184" as="geometry">
+            <Array as="points">
+              <mxPoint x="355" y="170" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e17" edge="1" parent="1" source="n6" style="endArrow=block;html=1;strokeWidth=2;strokeColor=#333333;dashed=0;" target="n8" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="355" y="470" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e19" edge="1" parent="1" source="n8" style="endArrow=block;html=1;strokeWidth=2;strokeColor=#333333;dashed=0;" target="n10" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e20" edge="1" parent="1" source="n10" style="endArrow=block;html=1;strokeWidth=2;strokeColor=#333333;dashed=0;" target="n11" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e21" edge="1" parent="1" source="n10" style="endArrow=block;html=1;strokeWidth=2;strokeColor=#333333;dashed=0;" target="n12" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e23" edge="1" parent="1" source="n12" style="endArrow=block;html=1;strokeWidth=2;strokeColor=#13AA52;dashed=0;" target="n13" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1240" y="500" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OzClYiOiu2-jlUqGGY0i-1" edge="1" parent="1" style="endArrow=block;html=1;strokeWidth=2;strokeColor=#13AA52;dashed=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="n13" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1240" y="140" />
+            </Array>
+            <mxPoint x="1070" y="140" as="sourcePoint" />
+            <mxPoint x="1240" y="260" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="8qBNIkWRaEqc9mPChhv1-3" edge="1" parent="1" source="n9" style="endArrow=classic;html=1;rounded=0;defaultLabelBackgroundColor=page;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" target="n8" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="610" y="540" as="sourcePoint" />
+            <mxPoint x="660" y="490" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="8qBNIkWRaEqc9mPChhv1-5" edge="1" parent="1" style="endArrow=block;html=1;strokeWidth=2;strokeColor=#333333;dashed=0;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="699.58" y="210" as="sourcePoint" />
+            <mxPoint x="789.9966666666666" y="280" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
